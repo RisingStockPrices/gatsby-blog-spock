@@ -9,7 +9,7 @@ module.exports = {
     description: `A minimal & beautiful gatsby personal blog starter with a nice glassmorphism UI.`,
     siteUrl: `https://gatsbyglass.netlify.app`,
     social: {
-      instagram: 'bear.json`,
+      twitter: `yinkakun`,
     },
     socialLinks: [
       {
