@@ -7,22 +7,15 @@ module.exports = {
     },
     openGraphImage: `open-graph-image.png`,
     description: `A minimal & beautiful gatsby personal blog starter with a nice glassmorphism UI.`,
-    siteUrl: `https://gatsbyglass.netlify.app`,
-    social: {
-      twitter: `yinkakun`,
-    },
+    siteUrl: `https://spockthewizard1.netlify.app`,
     socialLinks: [
       {
         name: 'github',
-        url: 'https://github.com',
-      },
-      {
-        name: 'twitter',
-        url: 'https://twitter.com',
+        url: 'https://github.com/RisingStockPrices',
       },
       {
         name: 'instagram',
-        url: 'https://instagram.com',
+        url: 'https://www.instagram.com/bears_are_coool',
       },
     ],
   },
