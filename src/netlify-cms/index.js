@@ -4,8 +4,8 @@ CMS.init({
   config: {
     backend: {
       name: 'git-gateway',
-      repo: RisingStockPrices/gatsby-blog,
-      branch: main
+      // repo: RisingStockPrices/gatsby-blog-spock,
+      // branch: main
     },
   },
 });
