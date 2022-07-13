@@ -3,6 +3,5 @@ template: 'index-template'
 title: 'Gatsby Starter Glass'
 ---
 
-#Hello World
-
-A minimal & beautiful gatsby personal blog starter with nice glassmorphism UI.
+# Jooeun Son
+Graphics Enthusiast. Master's student at POSTECH.
