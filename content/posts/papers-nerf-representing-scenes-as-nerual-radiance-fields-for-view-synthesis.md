@@ -20,12 +20,30 @@ Given a viewing direction and spatial location within the scene, the network out
 
 ### How is emitted radiance computed?
 
-TBW
+When rendering a scene, a ray is cast to from the camera position to each pixel location. The color value of each pixel is computed by evaluating a numerical estimation of the following integral. Each term of the integrand represent the accumulated transmittance, volume density, and emitted radiance at the sampled point along the ray. 
 
-### What do you mean by "Classic Volume Rendering Techniques"?
+![](/media/nerf_radiance.png "Expected color formula")
 
-TBW
+At first I was confused about the two terms - volume density and accumulated transmittance. They seemed to represent quite similar concepts, and looking at the formula of the latter, things got more confusing. But accumulated transmittance is there because in order to see a particle, it must not be occluded by things in between the particle itself and the camera. Volume density represents the probability that the particle actually exists at that location. Two quite different things indeed.
+
+Another question regarded why the transmittance functions looks the way it does - an exponential function with volume density in the integrand. Well, in the referenced paper (rendering review by Max \[26]), they imagine a short cylinder with particles that absorb the incoming light parallel to the height of the cylinder. 
+
+![](/media/kakaotalk_20220717_223951284.jpg)
+
+![](/media/kakaotalk_20220717_223951284_01.jpg)
+
+![](/media/kakaotalk_20220717_223951284_02.jpg)
+
+The intensity of light is reduced by this occlusion, hence the above differential equation. Solving this gives us the exponential form in the paper.
+
+### Positional Encoding & Hierarchical Sampling
+
+
 
 ## Experiments
 
+TBW
+
 ## Thoughts
+
+\### Importance Sampling
