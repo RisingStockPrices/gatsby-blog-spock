@@ -10,9 +10,7 @@ description: Studied Nerf. A brief summary of the key ideas and questions I had,
 ---
 ## Key Idea
 
-Given a sparse set of input images of a scene, NeRF aims to learn a continuous volumetric scene function implemented as a neural network.
-
-It is capable of generating views of the scene at previously unseen viewing directions
+Given a sparse set of input images of a scene, NeRF aims to learn a continuous volumetric scene function implemented as a neural network. It is capable of generating views of the scene at previously unseen viewing directions
 
 Given a viewing direction and spatial location within the scene, the network outputs the emitted radiance for that location along with the volume density. These values are aggregated to compute the final pixel values using classic volume rendering techniques.
 
@@ -28,17 +26,17 @@ At first I was confused about the two terms - volume density and accumulated tra
 
 Another question regarded why the transmittance functions looks the way it does - an exponential function with volume density in the integrand. Well, in the referenced paper (rendering review by Max \[26]), they imagine a short cylinder with particles that absorb the incoming light parallel to the height of the cylinder. 
 
-![](/media/kakaotalk_20220717_223951284.jpg)
-
-![](/media/kakaotalk_20220717_223951284_01.jpg)
-
-![](/media/kakaotalk_20220717_223951284_02.jpg)
+![](/media/kakaotalk_20220717_230317260.jpg)
 
 The intensity of light is reduced by this occlusion, hence the above differential equation. Solving this gives us the exponential form in the paper.
 
 ### Positional Encoding & Hierarchical Sampling
 
+The authors used two other methods to achieve state-of-the-art results - positional encoding and hierarchical sampling. 
 
+**Positional Encoding** aims to map the input coordinate and viewing direction into a high frequency function before passing it to the MLP. It was empirically found that MLPs, although universal approximators, are not so good at learning complex functions with great detail. This sort of positional encoding aims to alleviate this issue.
+
+The idea behind **hierarchical sampling** is that some samples are more... relevant than others! It would be a waste if we sampled a bunch of points in free space (with nothing but air) or in occluded regions. Two networks - coarse and fine - are maintained. Locations are intially sampled evaluated on the coarse network, where the output color of the coarse network is computed as a weighted sum of all sampled colors along the ray. When sampling points for the next "fine" network, these weights are normalized and used as a PDF.
 
 ## Experiments
 
@@ -46,4 +44,4 @@ TBW
 
 ## Thoughts
 
-\### Importance Sampling
+TBW
